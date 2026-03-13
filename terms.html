@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Use — Habitail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf9f6;
+      --primary: #5c7a5c;
+      --accent: #E07A5F;
+      --text: #2d2d2d;
+      --muted: #888;
+      --border: #e5e5e5;
+      --card: #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23faf9f6'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23e8e4dc' opacity='0.4'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .site-header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo-text {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--primary); }
+
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 64px 24px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #EBF2EB;
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .hero-meta {
+      color: var(--muted);
+      font-size: 14px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .divider {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .divider hr {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+
+    .toc-title {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+    }
+
+    .toc li {
+      counter-increment: toc;
+      font-size: 14px;
+    }
+
+    .toc li::before {
+      content: counter(toc) ". ";
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .toc a:hover { color: var(--primary); }
+
+    section {
+      margin-bottom: 48px;
+      scroll-margin-top: 80px;
+    }
+
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h2 .section-num {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--primary);
+      background: #EBF2EB;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      color: #444;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    ul, ol {
+      padding-left: 0;
+      margin-bottom: 14px;
+      list-style: none;
+    }
+
+    ul li, ol li {
+      font-size: 15px;
+      color: #444;
+      padding: 6px 0 6px 24px;
+      position: relative;
+      border-bottom: 1px solid #f5f3ef;
+    }
+
+    ul li:last-child, ol li:last-child {
+      border-bottom: none;
+    }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 13px;
+    }
+
+    .highlight-box {
+      background: #FDF0ED;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+
+    .highlight-box p {
+      color: #c45a3a;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 20px;
+    }
+
+    .contact-card p { margin: 0 0 8px; }
+
+    .contact-card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-card a:hover { text-decoration: underline; }
+
+    a { color: var(--primary); }
+
+    .footer {
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-logo {
+      font-family: 'Lora', serif;
+      font-size: 18px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--primary); }
+
+    @media (max-width: 600px) {
+      .toc ol { grid-template-columns: 1fr; }
+      .nav-links { gap: 16px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🐾</div>
+        <span class="logo-text">Habitail</span>
+      </a>
+      <nav class="nav-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html" class="active">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-badge">📄 Legal</div>
+    <h1>Terms of Use</h1>
+    <div class="hero-meta">
+      <span>🐾 Habitail</span>
+      <span>📅 Effective: January 1, 2025</span>
+      <span>🔄 Last updated: January 1, 2025</span>
+    </div>
+  </div>
+
+  <div class="divider"><hr/></div>
+
+  <div class="content">
+
+    <div class="highlight-box">
+      <p>By using Habitail you agree to these terms. Please read them — they're written in plain English and won't take long.</p>
+    </div>
+
+    <nav class="toc">
+      <div class="toc-title">Table of Contents</div>
+      <ol>
+        <li><a href="#acceptance">Acceptance of Terms</a></li>
+        <li><a href="#use">Use of the App</a></li>
+        <li><a href="#account">Your Account</a></li>
+        <li><a href="#subscriptions">Subscriptions</a></li>
+        <li><a href="#content">Your Content</a></li>
+        <li><a href="#disclaimer">Medical Disclaimer</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#changes">Changes to Terms</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ol>
+    </nav>
+
+    <section id="acceptance">
+      <h2><span class="section-num">01</span> Acceptance of Terms</h2>
+      <p>By downloading, installing, or using Habitail ("the App"), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the App.</p>
+      <p>These terms apply to all users of Habitail, including free and premium subscribers.</p>
+    </section>
+
+    <section id="use">
+      <h2><span class="section-num">02</span> Use of the App</h2>
+      <p>Habitail is a personal pet care and habit tracking app. You may use it for personal, non-commercial purposes only.</p>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the app for any unlawful purpose</li>
+        <li>Attempt to reverse engineer, hack, or compromise the app or its servers</li>
+        <li>Use the app in any way that could damage or overburden our infrastructure</li>
+        <li>Share your account credentials with others</li>
+        <li>Create multiple accounts to circumvent free tier limitations</li>
+      </ul>
+    </section>
+
+    <section id="account">
+      <h2><span class="section-num">03</span> Your Account</h2>
+      <p>You are responsible for maintaining the security of your account and all activity that occurs under it. Use a strong, unique password and keep it confidential.</p>
+      <p>You must provide accurate information when creating your account. You may delete your account at any time from Settings → Delete Account, which will permanently erase all your data.</p>
+      <p>We reserve the right to suspend or terminate accounts that violate these terms.</p>
+    </section>
+
+    <section id="subscriptions">
+      <h2><span class="section-num">04</span> Subscriptions & Billing</h2>
+      <p>Habitail offers a free tier and an optional Habitail Pro subscription with additional features.</p>
+      <ul>
+        <li><strong>Free trial</strong> — a 7-day free trial is available for new Pro subscribers</li>
+        <li><strong>Auto-renewal</strong> — subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period</li>
+        <li><strong>Billing</strong> — payment is charged to your Apple ID account at confirmation of purchase</li>
+        <li><strong>Cancellation</strong> — you can cancel any time via Settings → Manage Subscription or through your Apple ID subscription settings</li>
+        <li><strong>Refunds</strong> — refund requests are handled by Apple in accordance with their refund policy</li>
+      </ul>
+      <p>Subscription prices are displayed in the app before purchase. We reserve the right to change pricing with reasonable notice.</p>
+    </section>
+
+    <section id="content">
+      <h2><span class="section-num">05</span> Your Content</h2>
+      <p>You own all content you enter into Habitail — your pets' data, habits, symptoms, and notes are yours. We do not claim any ownership over your content.</p>
+      <p>By using the app, you grant us a limited license to store, process, and display your content solely for the purpose of providing the app's features to you.</p>
+      <p>You are responsible for the accuracy of the data you enter. We are not liable for any decisions made based on information stored in the app.</p>
+    </section>
+
+    <section id="disclaimer">
+      <h2><span class="section-num">06</span> Medical Disclaimer</h2>
+      <p>Habitail is a personal tracking tool only. It is not a veterinary service and does not provide medical advice, diagnosis, or treatment for animals.</p>
+      <p>Symptom logs in Habitail are for personal record-keeping purposes only. They do not replace professional veterinary care.</p>
+      <p><strong>If your pet is unwell, please consult a licensed veterinarian.</strong> Do not rely on Habitail as a substitute for professional veterinary advice.</p>
+    </section>
+
+    <section id="liability">
+      <h2><span class="section-num">07</span> Limitation of Liability</h2>
+      <p>Habitail is provided "as is" without warranties of any kind. We do not guarantee uninterrupted access or that the app will be error-free.</p>
+      <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app, including but not limited to loss of data.</p>
+      <p>Our total liability to you for any claims arising from these terms shall not exceed the amount you paid for a Habitail Pro subscription in the 12 months preceding the claim.</p>
+    </section>
+
+    <section id="termination">
+      <h2><span class="section-num">08</span> Termination</h2>
+      <p>You may stop using Habitail and delete your account at any time.</p>
+      <p>We may suspend or terminate your access to the app if you violate these terms, with or without notice. Upon termination, your right to use the app ceases and your data will be deleted in accordance with our Privacy Policy.</p>
+    </section>
+
+    <section id="changes">
+      <h2><span class="section-num">09</span> Changes to These Terms</h2>
+      <p>We may update these Terms of Use from time to time. When we make significant changes, we'll notify you via email or an in-app notice before the changes take effect.</p>
+      <p>Continued use of Habitail after updated terms are posted constitutes your acceptance of the changes. If you disagree with the updated terms, you may delete your account.</p>
+    </section>
+
+    <section id="contact">
+      <h2><span class="section-num">10</span> Contact Us</h2>
+      <p>Questions about these terms? We're happy to help.</p>
+      <div class="contact-card">
+        <p><strong>🐾 Habitail</strong></p>
+        <p>Email: <a href="mailto:support@habitail.app">support@habitail.app</a></p>
+        <p style="margin:0; color: var(--muted); font-size: 14px;">We typically respond within 1–2 business days.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="footer">
+    <div class="footer-logo">🐾 Habitail</div>
+    <p>Daily care for your best friend</p>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:support@habitail.app">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
