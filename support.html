@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support — Habitail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #5c7a5c;
+      --green-light: #EBF2EB;
+      --coral: #E07A5F;
+      --bg: #faf9f6;
+      --text: #2d2d2d;
+      --muted: #888;
+      --border: #e5e5e5;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--green);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      margin-bottom: 16px;
+    }
+
+    .logo-letter {
+      font-family: 'Lora', serif;
+      font-size: 36px;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .logo-dot {
+      color: var(--coral);
+    }
+
+    header h1 {
+      font-family: 'Lora', serif;
+      font-size: 28px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    header p {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--green);
+      border-radius: 20px;
+      padding: 36px;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .contact-card .emoji {
+      font-size: 40px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .contact-card h2 {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--green);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .contact-btn:hover { opacity: 0.9; }
+
+    .response-note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* ── Section ── */
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      margin-bottom: 48px;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-question:hover { background: var(--bg); }
+
+    .faq-chevron {
+      color: var(--green);
+      font-size: 18px;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(90deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-answer a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .faq-answer a:hover { text-decoration: underline; }
+
+    /* ── Quick links ── */
+    .links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .link-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .link-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 2px 12px rgba(92,122,92,0.1);
+    }
+
+    .link-card .link-emoji { font-size: 24px; }
+
+    .link-card .link-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .link-card .link-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .links-grid { grid-template-columns: 1fr; }
+      .contact-card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-mark">
+      <span class="logo-letter">h<span class="logo-dot">·</span></span>
+    </div>
+    <h1>Habitail Support</h1>
+    <p>We're here to help you and your pets 🐾</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="support.html" class="active">Support</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </nav>
+
+  <main>
+
+    <!-- Contact -->
+    <div class="contact-card">
+      <span class="emoji">✉️</span>
+      <h2>Get in touch</h2>
+      <p>Have a question or running into an issue?<br>We'd love to hear from you.</p>
+      <a href="mailto:habitail@outlook.com" class="contact-btn">
+        habitail@outlook.com
+      </a>
+      <p class="response-note">We typically respond within 1–2 business days.</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I add a pet?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          Tap the <strong>Pets</strong> tab at the bottom, then tap <strong>+ Add Pet</strong>. Enter your pet's name, species, and optionally a birthday. Your first pet is always free.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I add a habit?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          From the <strong>Today</strong> screen, tap the <strong>+</strong> button and select <strong>Add Habit</strong>. Choose a habit type, name, frequency, and optional reminder time. Habits will appear on the Today screen on scheduled days.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do streaks work?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          A streak increases each day you complete all scheduled habits for a pet. Days with no habits scheduled are <strong>rest days</strong> and won't break your streak. Missing a day that has habits will reset the streak to zero.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I log a symptom?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          From the <strong>Today</strong> screen, tap the <strong>+</strong> button and select <strong>Log Symptom</strong>. Select symptom tags, set a severity level, and add any notes. You can also tap <strong>All good</strong> to log a healthy day.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I generate a vet report?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          Go to your pet's profile and tap <strong>Vet Report</strong>. Choose a time range and tap <strong>Export PDF</strong> to share the report with your vet. PDF export requires <strong>Habitail Pro</strong>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I restore my purchase?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          Go to <strong>Settings → Restore Purchases</strong>. Make sure you're signed in with the same Apple ID used for the original purchase. Your Pro subscription will be restored automatically.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I cancel my subscription?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          Go to <strong>Settings → Manage Subscription</strong> to manage or cancel your Habitail Pro subscription. You can also cancel directly through <strong>iPhone Settings → Apple ID → Subscriptions</strong>.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          How do I delete my account?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          Go to <strong>Settings → Delete Account</strong>. This will permanently delete your account and all associated data. This action cannot be undone. Make sure to cancel any active subscriptions first.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+          Can I use Habitail on multiple devices?
+          <span class="faq-chevron">›</span>
+        </button>
+        <div class="faq-answer">
+          Yes! Sign in with the same account on any iPhone and your pets, habits, and health logs will sync automatically via your Habitail account.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quick links -->
+    <h2 class="section-title">More Information</h2>
+    <div class="links-grid">
+      <a href="privacy.html" class="link-card">
+        <span class="link-emoji">🔒</span>
+        <span class="link-title">Privacy Policy</span>
+        <span class="link-sub">How we handle your data</span>
+      </a>
+      <a href="terms.html" class="link-card">
+        <span class="link-emoji">📄</span>
+        <span class="link-title">Terms of Use</span>
+        <span class="link-sub">Rules and guidelines</span>
+      </a>
+      <a href="mailto:habitail@outlook.com" class="link-card">
+        <span class="link-emoji">✉️</span>
+        <span class="link-title">Email Support</span>
+        <span class="link-sub">habitail@outlook.com</span>
+      </a>
+      <a href="https://apps.apple.com" class="link-card">
+        <span class="link-emoji">⭐</span>
+        <span class="link-title">Rate Habitail</span>
+        <span class="link-sub">Leave a review on the App Store</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Habitail · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:habitail@outlook.com">Contact</a></p>
+  </footer>
+
+  <script>
+    function toggle(btn) {
+      const item = btn.closest('.faq-item');
+      item.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
